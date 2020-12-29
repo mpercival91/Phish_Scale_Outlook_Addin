@@ -1,0 +1,138 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Phish Scale Task Pane Add-in</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- For more information on Office UI Fabric, visit https://developer.microsoft.com/fabric. -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css"/>
+
+    <!-- Template styles -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="ms-font-m ms-welcome ms-Fabric">
+    <header class="ms-welcome__header ms-bgColor-neutralLighter">
+        <h1 class="ms-font-su">Phish Scale</h1>
+    </header>
+    <section id="sideload-msg" class="ms-welcome__main">
+        <h2 class="ms-font-xl">Please sideload your add-in to see app body.</h2>
+    </section>
+	<main id="app-body" class="ms-welcome__main" style="display: none;">
+
+		<h2 class="ms-font-xl"> Premise Alignment </h2>
+		
+		<!-- Premise Alignment Asessment point 1 -->
+		<p>
+		Mimics a workplace process or practice for the target audience.<br/>
+		<select id="premise_alignment_assessment_point_1">
+		  <option></option>
+		  <option>Extreme applicability, alignment, or relevancy</option>
+		  <option>Significant applicability, alignment, or relevancy</option>
+		  <option>Moderate applicability, alignment, or relevancy</option>
+		  <option>Low applicability, alignment, or relevancy</option>
+		  <option>Not applicable, no alignment, or no relevancy</option>
+		</select>
+		</p>
+		
+		<!-- Premise Alignment Asessment point 2 -->
+		<p>
+		Has workplace relevance for the target audience.<br/>
+		<select id="premise_alignment_assessment_point_2">
+		  <option></option>
+		  <option>Extreme applicability, alignment, or relevancy</option>
+		  <option>Significant applicability, alignment, or relevancy</option>
+		  <option>Moderate applicability, alignment, or relevancy</option>
+		  <option>Low applicability, alignment, or relevancy</option>
+		  <option>Not applicable, no alignment, or no relevancy</option>
+		</select>
+		</p>
+		
+		<!-- Premise Alignment Asessment point 3 -->
+		<p>
+		Aligns with other situations or events, including external to the workplace.<br/>
+		<select id="premise_alignment_assessment_point_3">
+		  <option></option>
+		  <option>Extreme applicability, alignment, or relevancy</option>
+		  <option>Significant applicability, alignment, or relevancy</option>
+		  <option>Moderate applicability, alignment, or relevancy</option>
+		  <option>Low applicability, alignment, or relevancy</option>
+		  <option>Not applicable, no alignment, or no relevancy</option>
+		</select>
+		</p>
+
+		<!-- Premise Alignment Asessment point 4 -->
+		<p>
+		Suggests or infers concern over consequences for NOT clicking for the target audience.<br/>
+		<select id="premise_alignment_assessment_point_4">
+		  <option></option>
+		  <option>Extreme applicability, alignment, or relevancy</option>
+		  <option>Significant applicability, alignment, or relevancy</option>
+		  <option>Moderate applicability, alignment, or relevancy</option>
+		  <option>Low applicability, alignment, or relevancy</option>
+		  <option>Not applicable, no alignment, or no relevancy</option>
+		</select>
+		</p>		
+
+		<!--Premise Alignment Asessment point 5 -->
+		<p>
+		Target has been the subject of targeted training, specific warnings, or other exposure.<br/>
+		<select id="premise_alignment_assessment_point_5">
+		  <option></option>
+		  <option>Extreme applicability, alignment, or relevancy</option>
+		  <option>Significant applicability, alignment, or relevancy</option>
+		  <option>Moderate applicability, alignment, or relevancy</option>
+		  <option>Low applicability, alignment, or relevancy</option>
+		  <option>Not applicable, no alignment, or no relevancy</option>
+		</select>
+		</p>		
+		
+		<!-- Cues selectors -->
+		<h2 class="ms-font-xl"> Observed Cues </h2>
+		<p>
+		<input type="checkbox" id="cue1"><span class="tooltip"> Spelling and grammar irregularities <br/> <span class="tooltiptext"> Does the message contain spelling or grammar errors, including mismatched lurality?</span></span><br/>
+		<input type="checkbox" id="cue2"><span class="tooltip"> Inconsistency <br/> <span class="tooltiptext">Are there inconsistencies contained in the email message?</span></span><br/>
+		<input type="checkbox" id="cue3"><span class="tooltip"> Attachment type <br/> <span class="tooltiptext"> Is there a potentially dangerous attachment?</span></span><br/>
+		<input type="checkbox" id="cue4"><span class="tooltip"> Sender display name and email address <br/> <span class="tooltiptext">Does a display name hide the real sender?</span></span><br/>
+		<input type="checkbox" id="cue5"><span class="tooltip"> URL hyperlinking <br/> <span class="tooltiptext">Is there text that hides the true URL in a hyperlink?</span></span><br/>
+		<input type="checkbox" id="cue6"><span class="tooltip"> Domain spoofing <br/> <span class="tooltiptext"> Is a domain name used in addresses or links plausibly similar to a legitimate entity’s domain?</span></span><br/>
+		<input type="checkbox" id="cue7"><span class="tooltip"> No/minimal branding and logos <br/> <span class="tooltiptext">Is appropriate branding missing?</span></span><br/>
+		<input type="checkbox" id="cue8"><span class="tooltip"> Logo imitation or out-ofdate branding/logos <br/> <span class="tooltiptext"> Do any branding elements appear to be an imitation or out-ofdate?</span></span><br/>
+		<input type="checkbox" id="cue9"><span class="tooltip"> Unprofessional looking design or formatting <br/> <span class="tooltiptext">Does the design and formatting violate any conventional professional practices?</span></span><br/>
+		<input type="checkbox" id="cue10"><span class="tooltip"> Legal language/copyright info/disclaimers <br/> <span class="tooltiptext"> Are any inappropriate security indicators or icons present?</span></span><br/>
+		<input type="checkbox" id="cue11"><span class="tooltip"> Distracting detail <br/> <span class="tooltiptext">Does the message contain any detailed aspects that are not central to the content?</span></span><br/>
+		<input type="checkbox" id="cue12"><span class="tooltip"> Requests for sensitive information <br/> <span class="tooltiptext"> Does the message contain a request for any sensitive information, including personally identifying information or credentials?</span></span><br/>
+		<input type="checkbox" id="cue13"><span class="tooltip"> Sense of urgency <br/> <span class="tooltiptext">Does the message contain time pressure, including implied?</span></span><br/>
+		<input type="checkbox" id="cue14"><span class="tooltip"> Threatening language <br/> <span class="tooltiptext">Does the message contain a threat, including an implied threat?</span></span><br/>
+		<input type="checkbox" id="cue15"><span class="tooltip"> Generic greeting <br/> <span class="tooltiptext">Does the message lack a greeting or lack personalization in the message?</span></span><br/>
+		<input type="checkbox" id="cue16"><span class="tooltip"> Lack of signer details <br/> <span class="tooltiptext"> Does the message lack detail about the sender, such as contact information?</span></span><br/>
+		<input type="checkbox" id="cue17"><span class="tooltip"> Humanitarian appeals <br/> <span class="tooltiptext">Does the message make an appeal to help others?</span></span><br/>
+		<input type="checkbox" id="cue18"><span class="tooltip"> Too good to be true offers <br/> <span class="tooltiptext">Does the message offer anything that is too good to be true, such having won a contest, lottery, free vacation and so on?</span></span><br/>
+		<input type="checkbox" id="cue19"><span class="tooltip"> You’re special <br/> <span class="tooltiptext">Does the message offer anything just for you?</span></span><br/>
+		<input type="checkbox" id="cue20"><span class="tooltip"> Limited time offer <br/> <span class="tooltiptext">Does the message offer anything for a limited time?</span></span><br/>
+		<input type="checkbox" id="cue21"><span class="tooltip"> Mimics a work or business process <br/> <span class="tooltiptext">Does the message appear to be a work or business-related process?</span></span><br/>
+		<input type="checkbox" id="cue22"><span class="tooltip"> Poses as friend, colleague, authority figure <br/> <span class="tooltiptext">Does the message appear to be from a friend, colleague, boss or other authority entity?</span></span><br/>
+		</p>
+		
+		
+
+		<label id="result-cue-count"></label>
+		<label id="result-premise-alignment"></label>
+		<label id="result-difficulty"></label>
+		
+		<div role="button" id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
+			<span class="ms-Button-label">Calculate</span>
+		</div>
+	</main>
+</body>
+
+</html>

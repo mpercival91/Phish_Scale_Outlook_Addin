@@ -15,14 +15,40 @@ Office.onReady(info => {
   if (info.host === Office.HostType.Outlook) {
     document.getElementById("sideload-msg").style.display = "none";
     document.getElementById("app-body").style.display = "flex";
-    document.getElementById("run").onclick = run;
+    //document.getElementById("run").onclick = run;
+	
+	//listeners for changes to selectors to recalculate within interaction 
+	document.getElementById ("cue1").addEventListener ('change', run);
+	document.getElementById ("cue2").addEventListener ('change', run);
+	document.getElementById ("cue3").addEventListener ('change', run);
+	document.getElementById ("cue4").addEventListener ('change', run);
+	document.getElementById ("cue5").addEventListener ('change', run);
+	document.getElementById ("cue6").addEventListener ('change', run);
+	document.getElementById ("cue7").addEventListener ('change', run);
+	document.getElementById ("cue8").addEventListener ('change', run);
+	document.getElementById ("cue9").addEventListener ('change', run);
+	document.getElementById ("cue10").addEventListener ('change', run);
+	document.getElementById ("cue11").addEventListener ('change', run);
+	document.getElementById ("cue12").addEventListener ('change', run);
+	document.getElementById ("cue13").addEventListener ('change', run);
+	document.getElementById ("cue14").addEventListener ('change', run);
+	document.getElementById ("cue15").addEventListener ('change', run);
+	document.getElementById ("cue16").addEventListener ('change', run);
+	document.getElementById ("cue17").addEventListener ('change', run);
+	document.getElementById ("cue18").addEventListener ('change', run);
+	document.getElementById ("cue19").addEventListener ('change', run);
+	document.getElementById ("cue20").addEventListener ('change', run);
+	document.getElementById ("cue21").addEventListener ('change', run);
+	document.getElementById ("cue22").addEventListener ('change', run);
+	document.getElementById ("premise_alignment_assessment_point_1").addEventListener ('change', run);
+	document.getElementById ("premise_alignment_assessment_point_2").addEventListener ('change', run);
+	document.getElementById ("premise_alignment_assessment_point_3").addEventListener ('change', run);
+	document.getElementById ("premise_alignment_assessment_point_4").addEventListener ('change', run);
+	document.getElementById ("premise_alignment_assessment_point_5").addEventListener ('change', run);
   }
 });
 
 export async function run() {
-  /**
-   * Insert your Outlook code here
-   */
 	 // Get a reference to the current message
 	var item = Office.context.mailbox.item;
 	
@@ -222,9 +248,9 @@ export async function run() {
 	
 	
 
-	document.getElementById("result-premise-alignment").innerHTML = "<b>Premise Score:</b> <br/>" + final_premise_alignment_score_text;
-	document.getElementById("result-cue-count").innerHTML = "<b>Cue Score:</b> <br/>" + final_cue_score_text;
-	document.getElementById("result-difficulty").innerHTML = "<b>Difficulty:</b> <br/>" + final_difficulty_score_text;
+	document.getElementById("result-premise-alignment").innerHTML = final_premise_alignment_score_text;
+	document.getElementById("result-cue-count").innerHTML = final_cue_score_text;
+	document.getElementById("result-difficulty").innerHTML = final_difficulty_score_text;
 
 	
 }

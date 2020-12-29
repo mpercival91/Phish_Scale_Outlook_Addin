@@ -41,6 +41,17 @@
     padding: 10px ;
  }
  
+ .column {
+  flex: 50%;
+  border-collapse: separate;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+}
+ .row {
+  display: flex;
+  margin-top: 20px;
+}
  .ms-welcome__main > h2 {
      width: 100%;
      text-align: center;
